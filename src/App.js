@@ -6,12 +6,14 @@ import randomColor from 'randomcolor';
 
 export default function App() {
   const [color, setColor] = useState(randomColor());
+  const [hue, setHue] = useState(randomColor('value'));
 
   return (
     <div>
       <div
         style={{
-          backgroundColor: color,
+          backgroundColor: randomColor({ hue: hue }) || color,
+
           height: 300,
           width: 500,
           margin: 'auto',
@@ -24,11 +26,21 @@ export default function App() {
         <br />
         <br />
         <button
-          onClick={() => setColor(randomColor)}
+          onClick={() => setColor(randomColor())}
           style={{ height: 30, borderRadius: 2 }}
         >
           Generate
         </button>
+
+        <br />
+        <div>
+          <h3>Choose a hue</h3>
+          <br />
+          <input
+            value={hue}
+            onChange={(event) => setHue(event.currentTarget.value)}
+          />
+        </div>
       </div>
     </div>
   );
