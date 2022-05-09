@@ -12,13 +12,23 @@ export default function App() {
       <div
         style={{
           backgroundColor: color,
-          height: 200,
+          height: 300,
+          width: 500,
+          margin: 'auto',
+          textAlign: 'center',
+
+          borderRadius: 4,
         }}
       >
-        The background color is {color}.
+        <h3 style={{ paddingTop: 20 }}> The background color is {color}.</h3>
         <br />
         <br />
-        <button onClick={() => setColor(randomColor)}>Generate</button>
+        <button
+          onClick={() => setColor(randomColor)}
+          style={{ height: 30, borderRadius: 2 }}
+        >
+          Generate
+        </button>
       </div>
     </div>
   );
