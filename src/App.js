@@ -7,15 +7,17 @@ import randomColor from 'randomcolor';
 export default function App() {
   const [color, setColor] = useState(randomColor());
   const [hue, setHue] = useState(randomColor('value'));
+  const [luminosity, setLuminosity] = useState(randomColor('value'));
 
   return (
     <div>
       <div
         style={{
-          backgroundColor: randomColor({ hue: hue }) || color,
+          backgroundColor:
+            randomColor({ hue: hue }, { luminosity: luminosity }) || color,
 
-          height: 300,
-          width: 500,
+          height: 500,
+          width: 700,
           margin: 'auto',
           textAlign: 'center',
 
@@ -39,6 +41,15 @@ export default function App() {
           <input
             value={hue}
             onChange={(event) => setHue(event.currentTarget.value)}
+          />
+        </div>
+        <br />
+        <div>
+          <h3>Choose luminosity</h3>
+          <br />
+          <input
+            value={luminosity}
+            onChange={(event) => setLuminosity(event.currentTarget.value)}
           />
         </div>
       </div>
