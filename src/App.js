@@ -36,7 +36,7 @@ export default function App() {
             padding-top: 20px;
           `}
         >
-          The background color is {color}.
+          Generated Color: {color}.
         </h3>
         <br />
         <br />
