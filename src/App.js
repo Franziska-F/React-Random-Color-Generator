@@ -38,7 +38,7 @@ export default function App() {
             font-weight: bold;
           `}
         >
-          Generated Color: {color}.
+          Generated Color: {color}
         </div>
         <br />
         <br />
