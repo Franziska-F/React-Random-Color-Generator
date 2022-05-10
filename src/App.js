@@ -36,7 +36,6 @@ export default function App() {
             padding-top: 20px;
           `}
         >
-          {' '}
           The background color is {color}.
         </h3>
         <br />
@@ -59,6 +58,7 @@ export default function App() {
           <h3>Choose a hue</h3>
           <br />
           <input
+            type="search"
             onChange={(event) => {
               setColor(
                 randomColor({
@@ -75,6 +75,7 @@ export default function App() {
           <h3>Choose luminosity</h3>
           <br />
           <input
+            type="search"
             onChange={(event) => {
               setColor(
                 randomColor({
@@ -82,6 +83,7 @@ export default function App() {
                   hue: hue,
                 }),
               );
+
               setLuminosity(event.currentTarget.value);
             }}
           />
