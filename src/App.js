@@ -31,13 +31,15 @@ export default function App() {
           box-shadow: 5px 5px 5px lightslategray;
         `}
       >
-        <h3
+        <div
           css={css`
             padding-top: 20px;
+            font-size: 24px;
+            font-weight: bold;
           `}
         >
           Generated Color: {color}.
-        </h3>
+        </div>
         <br />
         <br />
         <button
