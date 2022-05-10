@@ -5,16 +5,17 @@ import { useState } from 'react';
 import randomColor from 'randomcolor';
 
 export default function App() {
-  const [color, setColor] = useState(randomColor());
-  const [hue, setHue] = useState(randomColor('value'));
-  const [luminosity, setLuminosity] = useState(randomColor('value'));
+  const [hue, setHue] = useState('');
+  const [luminosity, setLuminosity] = useState('');
+  const [color, setColor] = useState(
+    randomColor({ luminosity: luminosity, hue: hue }),
+  );
 
   return (
     <div>
       <div
         style={{
-          backgroundColor:
-            randomColor({ hue: hue }, { luminosity: luminosity }) || color,
+          backgroundColor: color,
 
           height: 500,
           width: 700,
@@ -28,7 +29,9 @@ export default function App() {
         <br />
         <br />
         <button
-          onClick={() => setColor(randomColor())}
+          onClick={() => {
+            setColor(randomColor({ luminosity: luminosity, hue: hue }));
+          }}
           style={{ height: 30, borderRadius: 2 }}
         >
           Generate
@@ -39,8 +42,15 @@ export default function App() {
           <h3>Choose a hue</h3>
           <br />
           <input
-            value={hue}
-            onChange={(event) => setHue(event.currentTarget.value)}
+            onChange={(event) => {
+              setColor(
+                randomColor({
+                  luminosity: luminosity,
+                  hue: event.currentTarget.value,
+                }),
+              );
+              setHue(event.currentTarget.value);
+            }}
           />
         </div>
         <br />
@@ -48,8 +58,15 @@ export default function App() {
           <h3>Choose luminosity</h3>
           <br />
           <input
-            value={luminosity}
-            onChange={(event) => setLuminosity(event.currentTarget.value)}
+            onChange={(event) => {
+              setColor(
+                randomColor({
+                  luminosity: event.currentTarget.value,
+                  hue: hue,
+                }),
+              );
+              setLuminosity(event.currentTarget.value);
+            }}
           />
         </div>
       </div>
