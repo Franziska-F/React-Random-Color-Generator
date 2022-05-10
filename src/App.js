@@ -36,6 +36,7 @@ export default function App() {
             padding-top: 20px;
             font-size: 24px;
             font-weight: bold;
+            background-color: ${color};
           `}
         >
           Generated Color: {color}
