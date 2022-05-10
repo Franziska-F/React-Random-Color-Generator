@@ -4,6 +4,9 @@ import { useState } from 'react';
 
 import randomColor from 'randomcolor';
 
+/** @jsxImportSource @emotion/react */
+import { css } from '@emotion/react';
+
 export default function App() {
   const [hue, setHue] = useState('');
   const [luminosity, setLuminosity] = useState('');
@@ -14,25 +17,39 @@ export default function App() {
   return (
     <div>
       <div
-        style={{
-          backgroundColor: color,
+        css={css`
+          background-color: ${color};
 
-          height: 500,
-          width: 700,
-          margin: 'auto',
-          textAlign: 'center',
+          height: 500px;
+          width: 700px;
+          margin: 20px auto;
 
-          borderRadius: 4,
-        }}
+          text-align: center;
+
+          border-radius: 8px;
+          transition: background-color 0.5s ease;
+          box-shadow: 5px 5px 5px lightslategray;
+        `}
       >
-        <h3 style={{ paddingTop: 20 }}> The background color is {color}.</h3>
+        <h3
+          css={css`
+            padding-top: 20px;
+          `}
+        >
+          {' '}
+          The background color is {color}.
+        </h3>
         <br />
         <br />
         <button
           onClick={() => {
             setColor(randomColor({ luminosity: luminosity, hue: hue }));
           }}
-          style={{ height: 30, borderRadius: 2 }}
+          css={css`
+            height: 25px;
+            border-radius: 4px;
+            cursor: pointer;
+          `}
         >
           Generate
         </button>
