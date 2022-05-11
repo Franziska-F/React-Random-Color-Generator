@@ -37,6 +37,8 @@ export default function App() {
             font-size: 24px;
             font-weight: bold;
             background-color: ${color};
+            transition: background-color 0.5s ease;
+            border-radius: 8px;
           `}
         >
           Generated Color: {color}
